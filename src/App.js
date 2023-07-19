@@ -1,39 +1,33 @@
-import { useEffect, useState } from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import { Stack } from 'react-bootstrap';
-import Draggable from 'react-draggable';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AboutImg from './About.png';
-import PresaleImg from './Presale.png';
-import WhitepaperImg from './Whitepaper.png';
-import RoadmapImg from './Roadmap.png';
-import SocialsImg from './Socials.png';
-import BuyImg from './Buy.png';
-import Logo from './logo.png';
-import Divider from './divider.png';
-import us from './us.png';
-import world from './world.png';
-import fullscreen from './fullscreen.png';
-import Jeet from './Jeet.png';
-import "./App.css";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { useEffect, useState } from 'react'
+import Container from 'react-bootstrap/Container'
+import Navbar from 'react-bootstrap/Navbar'
+import Row from 'react-bootstrap/Row'
+import Draggable from 'react-draggable'
+import AboutImg from './About.png'
+import "./App.css"
+import BuyImg from './Buy.png'
+import Jeet from './Jeet.png'
+import PresaleImg from './Presale.png'
+import RoadmapImg from './Roadmap.png'
+import SocialsImg from './Socials.png'
+import WhitepaperImg from './Whitepaper.png'
+import Divider from './divider.png'
+import fullscreen from './fullscreen.png'
+import Logo from './logo.png'
+import us from './us.png'
+import world from './world.png'
+
+import AboutUs from './components/AboutUs'
+import Buy from './components/Buy'
+import Presale from './components/Presale'
+import RoadMap from './components/RoadMap'
+import Socials from './components/Socials'
+import Whitepaper from './components/Whitepaper'
 
 function App() {
-
-  var w = 20 / 100;
-
-  let theWidth = parseInt(window.innerWidth) - parseInt(window.innerWidth * w);
-
-  if (window.innerWidth > 500) {
-
-    w = 50 / 100;
-
-    theWidth = parseInt(window.innerWidth) - parseInt(window.innerWidth * w);
-
-  }
+  const w = window.innerWidth > 500 ? 0.5 : 0.2
+  const theWidth = parseInt(window.innerWidth) - parseInt(window.innerWidth * w);
 
   const [pageWidth, setPageWidth] = useState(theWidth)
 
@@ -43,18 +37,7 @@ function App() {
     console.log(theWidth)
   });
 
-
-  const [aboutUs, setAboutUs] = useState(false);
-
-  const [Presale, setPresale] = useState(false);
-
-  const [Whitepaper, setWhitepaper] = useState(false);
-
-  const [Roadmap, setRoadmap] = useState(false);
-
-  const [Socials, setSocials] = useState(false);
-
-  const [Buy, setBuy] = useState(false);
+  const [tab, setTab] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -62,63 +45,46 @@ function App() {
 
   const whiteColor = { color: "#fff" }
 
-  var today = new Date();
+  const today = new Date();
+  // current datetime string in America/Chicago timezone
+  const chicago_datetime_str = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+  // create new Date object
+  const date_chicago = new Date(chicago_datetime_str);
 
-   // current datetime string in America/Chicago timezone
-   let chicago_datetime_str = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
-
-   // create new Date object
-   let date_chicago = new Date(chicago_datetime_str);
-
-const [hours,setHours] = useState(today.getHours()<10? '0'+today.getHours(): today.getHours());
-
-const [minutes,setMinutes] = useState(today.getMinutes()<10? '0'+today.getMinutes(): today.getMinutes());
-
-const [chicagoHours,setChicagoHours] = useState(date_chicago.getHours()<10? '0'+date_chicago.getHours(): date_chicago.getHours());
-
-const [chicagoMinutes,setChicagoMinutes] = useState(date_chicago.getMinutes()<10? '0'+date_chicago.getMinutes(): date_chicago.getMinutes());
-
+  const [hours,setHours] = useState(today.getHours()<10? '0'+today.getHours(): today.getHours());
+  const [minutes,setMinutes] = useState(today.getMinutes()<10? '0'+today.getMinutes(): today.getMinutes());
+  const [chicagoHours,setChicagoHours] = useState(date_chicago.getHours()<10? '0'+date_chicago.getHours(): date_chicago.getHours());
+  const [chicagoMinutes,setChicagoMinutes] = useState(date_chicago.getMinutes()<10? '0'+date_chicago.getMinutes(): date_chicago.getMinutes());
   const [userTime, setUserTime] = useState(hours + ":" + minutes);
-
   const [usaTime, setUsaTime] = useState(chicagoHours + ":" + chicagoMinutes);
 
   useEffect(() => {
-
     setInterval(() => {
-
       var today = new Date();
-
-            // current datetime string in America/Chicago timezone
-   let chicago_datetime_str = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
-
-   // create new Date object
-
+      // current datetime string in America/Chicago timezone
+      let chicago_datetime_str = new Date().toLocaleString("en-US", { timeZone: "America/Chicago" });
+      // create new Date object
       let date_chicago = new Date(chicago_datetime_str);
 
-      if(today.getSeconds()==0){
-
+      if(today.getSeconds() === 0){
          setHours(today.getHours()<10? '0'+today.getHours() : today.getHours());
          setMinutes(today.getMinutes()<10? '0'+today.getMinutes() : today.getMinutes());
 
          setChicagoHours(date_chicago.getHours()<10? '0'+date_chicago.getHours():date_chicago.getHours());
          setChicagoMinutes(date_chicago.getMinutes()<10? '0'+date_chicago.getMinutes():date_chicago.getMinutes());
-
       }
-
     }, 1000);
-
 
     setTimeout(() => {
       setIsLoading(false)
     }, 3000)
-    
   }, [])
 
   useEffect(()=>{
     setUserTime(hours+":"+minutes);
     //console.log(userTime)
     setUsaTime(chicagoHours + ":" + chicagoMinutes);
-  },[minutes])
+  },[minutes, hours, chicagoHours, chicagoMinutes])
 
   setInterval(function () {
     if (document.getElementById("di1") != null) {
@@ -170,421 +136,119 @@ const [chicagoMinutes,setChicagoMinutes] = useState(date_chicago.getMinutes()<10
     }
   }, 4200);
 
-  const closeOtherWindows = (current) => {
-    
-    let modules = ['aboutUs', 'Presale'];
-    for (var i = 0; i < modules.length; i++) {
-      if (modules[i] == current) {
-        if (current == "aboutUs") {
-          setAboutUs(true);
-        }
-        if (current == "Presale") {
-          setPresale(true);
-        }
-        if (current == "Whitepaper") {
-          setWhitepaper(true);
-        }
-        if (current == "Roadmap") {
-          setRoadmap(true);
-        }
-        if (current == "Socials") {
-          setSocials(true);
-        }
-        if (current == "Buy") {
-          setBuy(true);
-        }
-      }
+  if (isLoading) return (
+    <div style={{ width: "260px", position: "absolute", top: 250, left: "50%", transform: "translate(-50%, 0)" }}>
+      <div style={{ height: 100, width: "100px", marginLeft: "auto", marginRight: "auto" }}>
+        <img src={Jeet} style={{ width: "90px" }} alt="" />
+      </div>
 
-      if (current != "aboutUs") {
-        setAboutUs(false);
-      }
-      if (current != "Presale") {
-        setPresale(false);
-      }
-      if (current != "Whitepaper") {
-        setWhitepaper(false);
-      }
-      if (current != "Roadmap") {
-        setRoadmap(false);
-      }
-      if (current != "Socials") {
-        setSocials(false);
-      }
-      if (current != "Buy") {
-        setBuy(false);
-      }
-    }
+      <div id="logo" style={{ width: "230px", height: "80px", borderWidth: "10px", borderStyle: "solid", borderColor: "green", padding: "5px" }}>
+        <div id="di1" className="div1" ></div>
+        <div id="di2" className="div2" ></div>
+        <div id="di3" className="div3" ></div>
+        <div id="di4" className="div4" ></div>
+        <div id="di5" className="div5" ></div>
+        <div id="di6" className="div6" ></div>
+        <div id="di7" className="div7" ></div>
+        <div id="di8" className="div8" ></div>
+      </div>
+    </div>
+  )
 
-  }
+  const tabs = [
+    { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg, nameW: 120, imgW: 60 },
+    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, nameW: 80, imgW: 60 },
+    { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg, nameW: 130, imgW: 50 },
+    { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, nameW: 80, imgW: 50 },
+    { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, nameW: 80, imgW: 50 },
+    { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, nameW: 160, imgW: 50 },
+  ]
+
+  const chunks = sliceIntoChunks(tabs, 2)
+
+  const activeTab = tabs.find((t) => t.title === tab)
 
   return (
     <>
-      {isLoading &&
-        <div style={{ width: "260px", position: "absolute", top: 250, left: "50%", transform: "translate(-50%, 0)" }}>
-          <div style={{ height: 100, width: "100px", marginLeft: "auto", marginRight: "auto" }}>
-            <img src={Jeet} style={{ width: "90px" }} />
-          </div>
-
-          <div id="logo" style={{ width: "230px", height: "80px", borderWidth: "10px", borderStyle: "solid", borderColor: "green", padding: "5px" }}>
-            <div id="di1" className="div1" ></div>
-            <div id="di2" className="div2" ></div>
-            <div id="di3" className="div3" ></div>
-            <div id="di4" className="div4" ></div>
-            <div id="di5" className="div5" ></div>
-            <div id="di6" className="div6" ></div>
-            <div id="di7" className="div7" ></div>
-            <div id="di8" className="div8" ></div>
-          </div>
-        </div>
-      }
-      {!isLoading &&
-        <>
-          <Navbar style={navBarStyle} className="">
-            <Container >
-              <Navbar.Brand href="#home" style={whiteColor}><img src={Logo} style={{ height: 25, width: 30, padding: 0 }} /><span style={{ paddingLeft: "0", marginTop: 30, fontFamily: 'charcoal', fontStyle: "normal", fontWeight: 800, fontSize: "17px", lineHeight: "16px", color: "#000" }}>Jeets</span></Navbar.Brand>
-              <Navbar.Toggle />
-              <Navbar.Collapse className="justify-content-end">
+      <Navbar style={navBarStyle} className="">
+        <Container >
+        <Navbar.Brand href="#home" style={whiteColor}>
+          <img src={Logo} style={{ height: 25, width: 30, padding: 0 }} alt="" />
+          <span style={{ paddingLeft: "0", marginTop: 30, fontFamily: 'charcoal', fontStyle: "normal", fontWeight: 800, fontSize: "17px", lineHeight: "16px", color: "#000" }}>Jeets</span>
+        </Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              <img src={world} style={{ marginLeft: 10, marginRight: 5 }} alt="" />
+              <span style={{ fontSize: 13 }}>Your Time: {userTime}</span>
+            </Navbar.Text>
+            <img src={Divider} style={{ marginLeft: 10, marginRight: 10 }} alt="" />
+            <Navbar.Text>
+              <img src={us} style={{ marginLeft: 5, marginRight: 5 }} alt="" />
+              <span style={{ fontSize: 13 }}>USA: {usaTime}</span>
+            </Navbar.Text>
+            {pageWidth > 400 &&
+              <>
+                <img src={Divider} style={{ marginLeft: 10, marginRight: 10 }} alt="" />
                 <Navbar.Text>
-                  <img src={world} style={{ marginLeft: 10, marginRight: 5 }} />
-                  <span style={{ fontSize: 13 }}>Your Time: {userTime}</span>
+                  <img src={fullscreen} style={{ marginLeft: 10, marginRight: 10 }} alt="" />
+                  Full Screen
                 </Navbar.Text>
-                <img src={Divider} style={{ marginLeft: 10, marginRight: 10 }} />
-                <Navbar.Text>
-                  <img src={us} style={{ marginLeft: 5, marginRight: 5 }} />
-                  <span style={{ fontSize: 13 }}>USA: {usaTime}</span>
-                </Navbar.Text>
-                {pageWidth > 400 &&
-                  <>
-                    <img src={Divider} style={{ marginLeft: 10, marginRight: 10 }} />
-                    <Navbar.Text>
-                      <img src={fullscreen} style={{ marginLeft: 10, marginRight: 10 }} />
-                      Full Screen
-                    </Navbar.Text>
-                  </>
-                }
-              </Navbar.Collapse>
-            </Container>
-          </Navbar>
+              </>
+            }
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
 
-          <Container>
-            <div style={{ position: "absolute", top: 120, left: "50%", transform: "translate(-50%, 0)" }}>
-
-              {
-                aboutUs == true &&
-
-                <Draggable handle="strong">
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", }}>
-
-
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontSize: 18, fontWeight: "bold" }} onClick={() => { setAboutUs(false); }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal", color: "#420000" }}>About us</div>
-
-                    </div>
-
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-                        <p style={{ fontFamily: "Poly" }}>Lol😂 About Us? More like “About You”. Everyone’s been a JEET at some Point.</p>
-                        <p style={{ fontFamily: "Poly" }}>Sold too Early, Bought at the Top, Being weird in the TG chats and Fudding your Bags. </p>
-                        <p style={{ fontFamily: "Poly" }}>Hop on the $JEETS train, We can Fix you. You have just one Job, Buy Early, HODL and Lambo!</p>
-
-                        <p style={{ fontFamily: "Poly" }}><b>Contract Address:</b><br />
-                          (Not LIVE Yet)</p>
-                      </div>
-                    </div>
+      <Container>
+        <div style={{ position: "fixed", top: 120, left: "50%", transform: "translateX(-50%)" }}>
+          {
+            activeTab &&
+            <Draggable handle="strong">
+              <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", }}>
+                <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
+                  <div style={{ float: "left", width: 20 }}>
+                    <a href="#" style={{ textDecoration: "none", color: "#000", fontSize: 18, fontWeight: "bold" }} onClick={() => setTab(null)}>x</a>
                   </div>
-                </Draggable>
-              }
-
-              <Draggable handle="strong">
-                <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: 10, zIndex: 2 }}>
-
+                    <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal", color: "#420000" }}>{activeTab.title}</div>
                 </div>
-              </Draggable>
 
-              {
-                Presale == true &&
-                <Draggable handle="strong">
+                <div style={{ height: 10, backgroundColor: "#000" }}></div>
 
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", }}>
+                <activeTab.component />
+              </div>
+            </Draggable>
+          }
+        </div>
 
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: "bold" }} onClick={() => { setPresale(false); }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal" }}>Presale</div>
-                    </div>
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-                        <p style={{ fontFamily: "Poly" }}>Whitelisted PreSale on PinkSale (Coming Soon) </p>
-                      </div>
-                    </div>
-
-                  </div>
-
-                </Draggable>
-              }
-
-              {
-                Whitepaper == true &&
-                <Draggable handle="strong">
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", zIndex: 2 }}>
-
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: "bold" }} onClick={() => { setWhitepaper(false) }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal" }}>Whitepaper</div>
-                    </div>
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-
-                        <p style={{ fontFamily: "Poly" }}>The $JEETS Contract is coded to Award Holders on a Lottery Basis! You stand a chance to win big by NOT being a Fucking Buzz kill and selling too early.</p>
-
-                        <p style={{ fontFamily: "Poly" }}>Asides that, We’ve got this cool thingy planned where we Hold Raffle Draws for NFTs, Tokens and what not! </p>
-
-                        <p style={{ fontFamily: "Poly" }}>And most importantly, We plan to Enjoy the Ride to the Moon! </p>
-
-                      </div>
-                    </div>
-
-                  </div>
-                </Draggable>
-              }
-
-
-              {
-                Roadmap == true &&
-                <Draggable handle="strong">
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "60vh", zIndex: 2 }}>
-
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: "bold" }} onClick={() => { setRoadmap(false) }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal" }}>Roadmap</div>
-                    </div>
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-
-                        <p style={{ fontFamily: "Poly" }}>ATH 1</p>
-                        <ul>
-                        <li style={{ fontFamily: "Poly" }}>PreSale</li>
-
-                          <li style={{ fontFamily: "Poly" }}>$JEETS Token Launch</li>
-
-                          <li style={{ fontFamily: "Poly" }}>CoinGecko/CoinMarketcap Listings</li>
-
-                          <li style={{ fontFamily: "Poly" }}>1,000+ Holders</li>
-                        </ul>
-
-                        <p style={{ fontFamily: "Poly" }}>
-                          ATH 2
-                        </p>
-
-                        <ul>
-                          <li style={{ fontFamily: "Poly" }}>Community Partnerships</li>
-                          <li style={{ fontFamily: "Poly" }}>10,000+holders</li>
-                          <li style={{ fontFamily: "Poly" }}>Massive raffle draw Promotion</li>
-                        </ul>
-
-                        <p style={{ fontFamily: "Poly" }}>
-                          ATH 3
-                        </p>
-                        <ul>
-                          <li style={{ fontFamily: "Poly" }}>100,000+ holders</li>
-
-                          <li style={{ fontFamily: "Poly" }}>$JEETS Dominating Hard!</li>
-                        </ul>
-
-                      </div>
-                    </div>
-                  </div>
-                </Draggable>
-              }
-
-              {
-                Socials == true &&
-                <Draggable handle="strong">
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", zIndex: 2 }}>
-
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: "bold" }} onClick={() => { setSocials(false) }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal" }}>Socials</div>
-                    </div>
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-
-                        <p style={{ fontFamily: "Poly" }}>Twitter: <a href="https://twitter.com/jeets4l" target="_blank">@jeets4l</a></p>
-
-                        <p style={{ fontFamily: "Poly" }}>Telegram: <a href="https://t.me/jeets4l" target="_blank">@jeets4l</a></p>
-
-                      </div>
-                    </div>
-                  </div>
-                </Draggable>
-              }
-
-              {
-                Buy == true &&
-                <Draggable handle="strong">
-                  <div className="box no-cursor" style={{ position: "absolute", display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "70vh", zIndex: 2 }}>
-
-                    <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                      <div style={{ float: "left", width: 20 }}>
-                        <a href="#" style={{ textDecoration: "none", color: "#000", fontWeight: "bold" }} onClick={() => { setBuy(false) }}>x</a>
-                      </div>
-                      <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal" }}>Buy</div>
-                    </div>
-
-                    <div style={{ height: 10, backgroundColor: "#000" }}></div>
-
-                    <div style={{ overflow: 'scroll', height: "100%" }}>
-
-                      <div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-
-                        <p style={{ fontFamily: "Poly" }}><b>How to Buy After $JEETS Launch! (Not Launched Yet)</b></p>
-                        <ol>
-                          <li style={{fontFamily:"Poly", marginBottom:20}}><b>Set up your wallet</b><br />Create a Metamask/Trust Wallet account and top up your ETH balance on the Ethereum Chain.<br /></li>
-                          <li style={{fontFamily:"Poly", marginBottom:20}}><b>Go to UniSwap</b> (<a href="https://app.uniswap.org" target="_blank">https://app.uniswap.com</a>) and connect your wallet safely.<br /></li>
-                          <li style={{fontFamily:"Poly", marginBottom:20}}>
-                            <b>Set Slippage</b><br />
-                            Adjust your Slippage to 5-6%!<br />
-                            *Buy Sell Tax will be used for the Lottery Pool, Developments, Marketing etc!
-                            <br />
-                          </li>
-
-                          <li style={{fontFamily:"Poly", marginBottom:20}}>
-                            <b>Copy $JEETS Contract</b><br />
-                            Copy the $JEETS Contract address and Paste in the requested field
-                            <br />
-                          </li>
-
-                          <li style={{fontFamily:"Poly", marginBottom:20}}>
-                            <b>Swap for $JEETS Tokens</b><br />
-                            Swap your ETH for $JEETS Tokens and prepare yourself for the Crazy Ride!
-                            <br />
-                          </li>
-
-                        </ol>
-
-                        <span style={{fontFamily:"Poly"}}>Remember… Don’t Jeet your Bags!</span>
-                        
-
-                      </div>
-                    </div>
-                  </div>
-                </Draggable>
-                                      }
-                                    </div>
-
-            <Row style={{ marginTop: "50px" }}>
-
-              <div style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                                        <Row>
-                  <img src={AboutImg} style={{ marginLeft: "auto", marginRight: "auto", width: 60 }} />
+        {chunks.map((chunk) => (
+          <Row style={{ marginTop: "50px" }}>
+            {chunk.map((item) => (
+              <div onClick={() => setTab(item.title)} style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30, cursor: 'pointer' }}>
+                <Row>
+                  <img src={item.img} style={{ marginLeft: "auto", marginRight: "auto", width: item.imgW }} alt="" />
                 </Row>
                 <Row>
-                  <a onClick={() => { setAboutUs(true); closeOtherWindows("aboutUs"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 120, fontFamily: 'Charcoal' }} >
-                    About us
-                  </a>
+                  <span style={{ marginLeft: "auto", marginRight: "auto", width: item.nameW, whiteSpace: 'nowrap', textDecoration: "none", color: "#FFFFFF", fontFamily: 'Charcoal', textAlign: 'center' }}>
+                    {item.longTitle}
+                  </span>
                 </Row>
               </div>
-
-              <div style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                <Row>
-                  <img src={PresaleImg} style={{ marginLeft: "auto", marginRight: "auto", width: 60 }} />
-                </Row>
-                <Row>
-                  <a onClick={() => { setPresale(true); closeOtherWindows("Presale"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 80, fontFamily: 'Charcoal' }} >
-                    Presale
-                  </a>
-                </Row>
-              </div>
-
-            </Row>
-
-            <Row style={{ marginTop: "50px" }}>
-
-              <div style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                <Row>
-                  <img src={WhitepaperImg} style={{ marginLeft: "auto", marginRight: "auto", width: 50 }} />
-                </Row>
-                <Row>
-                  <a onClick={() => { setWhitepaper(true); closeOtherWindows("Whitepaper"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 130, fontFamily: 'Charcoal' }} >
-                    Whitepaper
-                  </a>
-                </Row>
-              </div>
-
-              <div style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                <Row>
-                  <img src={RoadmapImg} style={{ marginLeft: "auto", marginRight: "auto", width: 50 }} />
-                </Row>
-                <Row>
-                  <a onClick={() => { setRoadmap(true); closeOtherWindows("Roadmap"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 80, fontFamily: 'Charcoal' }} >
-                    Roadmap
-                  </a>
-                </Row>
-              </div>
-
-            </Row>
-
-            <Row style={{ marginTop: "50px" }}>
-
-              <div style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                <Row>
-                  <img src={SocialsImg} style={{ marginLeft: "auto", marginRight: "auto", width: 50 }} />
-                </Row>
-                <Row>
-                  <a onClick={() => { setSocials(true); closeOtherWindows("Socials"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 80, fontFamily: 'Charcoal' }} >
-                    Socials
-                  </a>
-                </Row>
-              </div>
-
-              <div style={{ width: 120, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30 }}>
-                <Row>
-                  <img src={BuyImg} style={{ marginLeft: "auto", marginRight: "auto", width: 50 }} />
-                </Row>
-                <Row>
-                  <a onClick={() => { setBuy(true); closeOtherWindows("Buy"); }} href='#' style={{ marginLeft: "auto", marginRight: "auto", textDecoration: "none", color: "#FFFFFF", width: 150, fontFamily: 'Charcoal' }} >
-                    How to buy
-                  </a>
-                </Row>
-              </div>
-
-            </Row>
-
-
-
-          </Container>
-        </>
-      }
+            ))}
+          </Row>
+        ))}
+      </Container>
     </>
   );
+}
+
+function sliceIntoChunks(arr, chunkSize) {
+  const res = [];
+  for (let i = 0; i < arr.length; i += chunkSize) {
+    const chunk = arr.slice(i, i + chunkSize);
+    res.push(chunk);
+  }
+  return res;
 }
 
 export default App;
