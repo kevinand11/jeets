@@ -4,7 +4,7 @@
   font-weight: normal;
   src: local('Poly'), url('Poly-Regular.woff') format('woff');
   }
-  
+
 
   @font-face {
   font-family: 'Poly Italic';
@@ -12,7 +12,7 @@
   font-weight: normal;
   src: local('Poly Italic'), url('Poly-Italic.woff') format('woff');
   }
-  
+
 .App {
   text-align: center;
 }
@@ -42,6 +42,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: none;
+}
+
+.row {
+  min-width: 200px;
 }
 
 .App-link {
@@ -178,5 +182,3 @@
   from {background-color: green;}
   to {background-color: green;}
 }
-
-

@@ -15,6 +15,7 @@ import WhitepaperImg from './Whitepaper.png'
 import Divider from './divider.png'
 import fullscreen from './fullscreen.png'
 import Logo from './logo.png'
+import TelebotsImg from './robo.png'
 import us from './us.png'
 import world from './world.png'
 
@@ -162,11 +163,17 @@ function App() {
     { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, nameW: 80, imgW: 50 },
     { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, nameW: 80, imgW: 50 },
     { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, nameW: 160, imgW: 50 },
+    { title: 'Telebots', longTitle: 'Telebots by $JEETS&trade;', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, nameW: 160, imgW: 60 },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
 
   const activeTab = tabs.find((t) => t.title === tab)
+
+  const openTab = (tab) => {
+    if (tab.component) return setTab(tab.title)
+    else window.open(tab.link, '_blank')
+  }
 
   return (
     <>
@@ -224,13 +231,15 @@ function App() {
         {chunks.map((chunk) => (
           <Row style={{ marginTop: "50px" }}>
             {chunk.map((item) => (
-              <div onClick={() => setTab(item.title)} style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30, cursor: 'pointer' }}>
+              <div onClick={() => openTab(item)} style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30, cursor: 'pointer' }}>
                 <Row>
-                  <img src={item.img} style={{ marginLeft: "auto", marginRight: "auto", width: item.imgW }} alt="" />
+                  <img src={item.img} style={{ marginLeft: "auto", marginRight: "auto", width: item.imgW, marginBottom: 8 }} alt="" />
                 </Row>
                 <Row>
-                  <span style={{ marginLeft: "auto", marginRight: "auto", width: item.nameW, whiteSpace: 'nowrap', textDecoration: "none", color: "#FFFFFF", fontFamily: 'Charcoal', textAlign: 'center' }}>
-                    {item.longTitle}
+                  <span
+                    style={{ marginLeft: "auto", marginRight: "auto", width: item.nameW, whiteSpace: 'nowrap', textDecoration: "none", color: "#FFFFFF", fontFamily: 'Charcoal', textAlign: 'center' }}
+                    dangerouslySetInnerHTML={{ __html: item.longTitle }}
+                  >
                   </span>
                 </Row>
               </div>
