@@ -1,7 +1,9 @@
 export default function Presale (props) {
-	return <div style={{ overflow: 'scroll', height: "100%" }}>
-		<div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
-		<p style={{ fontFamily: "Poly" }}>Whitelisted PreSale on PinkSale (Coming Soon) </p>
-		</div>
-	</div>
+	return <>
+		<p style={{ fontFamily: "Poly" }}>
+			Stay Updated on the Upcoming Presale and Participate to get Whitelisted
+			by Joining our Telegram and Following us on Twitter!
+			Twitter: <a target="_blank" href="https://twitter.com/jeets4l">https://twitter.com/jeets4l</a> Telegram: <a target="_blank" href="https://t.me/jeets4l">https://t.me/jeets4l</a>
+		</p>
+	</>
 }

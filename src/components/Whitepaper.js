@@ -1,14 +1,20 @@
 export default function Whitepaper (props) {
-	return <div style={{ overflow: 'scroll', height: "100%" }}>
+	return <>
+		<p><b>TeleBots</b></p>
 
-		<div style={{ backgroundColor: "#FFDD00", whiteSpace: 'pre-wrap', padding: 50 }}>
+<p><b>BrainyBot by $JEETS™</b> - Ask, Learn or Solve Anything… Right inside your telegram using this amazing Telebot with LOADS of Features!</p>
 
-		<p style={{ fontFamily: "Poly" }}>The $JEETS Contract is coded to Award Holders on a Lottery Basis! You stand a chance to win big by NOT being a Fucking Buzz kill and selling too early.</p>
+<p><b>Picasso by $JEETS™</b> - First ever AI Image Generator Telebot</p>
 
-		<p style={{ fontFamily: "Poly" }}>Asides that, We’ve got this cool thingy planned where we Hold Raffle Draws for NFTs, Tokens and what not! </p>
+Explore our useful and Fun Telebots! Steadily Updated and Convenient for us straight from your Telegram App! : <a href="https://linktr.ee/telebotsbyjeets" target="_blank">https://linktr.ee/telebotsbyjeets</a>
 
-		<p style={{ fontFamily: "Poly" }}>And most importantly, We plan to Enjoy the Ride to the Moon! </p>
+<br />
+<br />
+<p><b>$JEETS lottery</b></p>
 
-		</div>
-	</div>
+<p>The $JEETS Contract is coded to Award Holders on a Lottery Basis! You stand a chance to win big by NOT being a F***ng Buzz kill and selling too early.</p>
+
+<p>And most importantly, We plan to Enjoy the Ride to the Moon!</p>
+
+	</>
 }

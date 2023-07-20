@@ -27,15 +27,14 @@ import Socials from './components/Socials'
 import Whitepaper from './components/Whitepaper'
 
 function App() {
-  const w = window.innerWidth > 500 ? 0.5 : 0.2
-  const theWidth = parseInt(window.innerWidth) - parseInt(window.innerWidth * w);
+  const w = 1 - (window.innerWidth > 500 ? 0.5 : 0.1)
+  const theWidth = parseInt(window.innerWidth * w);
 
   const [pageWidth, setPageWidth] = useState(theWidth)
 
   window.addEventListener('resize', function () {
-    let theWidth = parseInt(window.innerWidth) - parseInt(window.innerWidth * w);
+    let theWidth = parseInt(window.innerWidth * w);
     setPageWidth(theWidth);
-    console.log(theWidth)
   });
 
   const [tab, setTab] = useState(null);
@@ -212,7 +211,7 @@ function App() {
           {
             activeTab &&
             <Draggable handle="strong">
-              <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: `${pageWidth}px`, height: "50vh", }}>
+              <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: pageWidth, maxWidth: pageWidth, height: "50vh", }}>
                 <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
                   <div style={{ float: "left", width: 20 }}>
                     <a href="#" style={{ textDecoration: "none", color: "#000", fontSize: 18, fontWeight: "bold" }} onClick={() => setTab(null)}>x</a>
@@ -222,7 +221,12 @@ function App() {
 
                 <div style={{ height: 10, backgroundColor: "#000" }}></div>
 
+                <div style={{ backgroundColor: "#FFDD00", overflow: 'auto', height: "100%" }}>
+		<div className="p-4 p-lg-5" style={{ whiteSpace: 'pre-wrap', height: "100%", fontFamily: "Poly" }}>
+
                 <activeTab.component />
+                </div>
+                </div>
               </div>
             </Draggable>
           }
