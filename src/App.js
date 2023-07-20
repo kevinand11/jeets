@@ -157,13 +157,13 @@ function App() {
   )
 
   const tabs = [
-    { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg, nameW: 120, imgW: 60 },
-    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, nameW: 80, imgW: 60 },
-    { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg, nameW: 130, imgW: 50 },
-    { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, nameW: 80, imgW: 50 },
-    { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, nameW: 80, imgW: 50 },
-    { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, nameW: 160, imgW: 50 },
-    { title: 'Telebots', longTitle: 'Telebots by $JEETS&trade;', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, nameW: 160, imgW: 75 },
+    { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg, imgW: 60 },
+    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, imgW: 60 },
+    { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg, imgW: 50 },
+    { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, imgW: 50 },
+    { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, imgW: 50 },
+    { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, imgW: 50 },
+    { title: 'Telebots', longTitle: 'Telebots', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, imgW: 75 },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
@@ -229,7 +229,7 @@ function App() {
         </div>
 
         {chunks.map((chunk) => (
-          <Row style={{ marginTop: "50px" }}>
+          <Row style={{ marginTop: "32px" }}>
             {chunk.map((item) => (
               <div onClick={() => openTab(item)} style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30, cursor: 'pointer' }}>
                 <Row>
@@ -237,7 +237,7 @@ function App() {
                 </Row>
                 <Row>
                   <span
-                    style={{ marginLeft: "auto", marginRight: "auto", width: item.nameW, whiteSpace: 'nowrap', textDecoration: "none", color: "#FFFFFF", fontFamily: 'Charcoal', textAlign: 'center' }}
+                    style={{ marginLeft: "auto", marginRight: "auto", whiteSpace: 'nowrap', textDecoration: "none", color: "#FFFFFF", fontFamily: 'Charcoal', textAlign: 'center' }}
                     dangerouslySetInnerHTML={{ __html: item.longTitle }}
                   >
                   </span>
