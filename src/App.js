@@ -157,12 +157,12 @@ function App() {
 
   const tabs = [
     { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg, imgW: 60 },
-    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, imgW: 60 },
+    { title: 'Telebots', longTitle: 'Telebots', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, imgW: 75 },
     { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg, imgW: 50 },
     { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, imgW: 50 },
     { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, imgW: 50 },
     { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, imgW: 50 },
-    { title: 'Telebots', longTitle: 'Telebots', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, imgW: 75 },
+    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, imgW: 60 },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
