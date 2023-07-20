@@ -15,7 +15,7 @@ import WhitepaperImg from './Whitepaper.png'
 import Divider from './divider.png'
 import fullscreen from './fullscreen.png'
 import Logo from './logo.png'
-import TelebotsImg from './robo.png'
+import TelebotsImg from './robo2.png'
 import us from './us.png'
 import world from './world.png'
 
@@ -163,7 +163,7 @@ function App() {
     { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, nameW: 80, imgW: 50 },
     { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, nameW: 80, imgW: 50 },
     { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, nameW: 160, imgW: 50 },
-    { title: 'Telebots', longTitle: 'Telebots by $JEETS&trade;', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, nameW: 160, imgW: 60 },
+    { title: 'Telebots', longTitle: 'Telebots by $JEETS&trade;', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, nameW: 160, imgW: 75 },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
