@@ -96,7 +96,7 @@ function App() {
             {chunk.map((item) => (
               <div onClick={() => openTab(item)} style={{ width: 100, borderColor: "#fff", borderWidth: 0, borderStyle: "solid", float: "left", marginRight: 30, cursor: 'pointer' }}>
                 <Row>
-                  <img src={item.img} style={{ marginLeft: "auto", marginRight: "auto", width: item.imgW, marginBottom: 8 }} alt="" />
+                  <img src={item.img} style={{ marginLeft: "auto", marginRight: "auto", height: 50, width: 'auto', marginBottom: 8 }} alt="" />
                 </Row>
                 <Row>
                   <span
