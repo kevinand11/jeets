@@ -21,7 +21,7 @@ export default function Presale (props) {
 					<span>YOU PAY</span>
 					<span style={{ color: '#F26133' }}>MAX</span>
 				</div>
-				<div style={{ border: '1px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
+				<div style={{ border: '2px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
 					<input type="number" min="0" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: 18 }} placeholder="0" />
 					<img src={CryptoIcon} style={{ width: 28, height: 28 }} alt="" />
 				</div>
@@ -31,20 +31,20 @@ export default function Presale (props) {
 					<span>AMOUNT OF TOKENS</span>
 					<span style={{ color: '#F26133' }}></span>
 				</div>
-				<div style={{ border: '1px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
+				<div style={{ border: '2px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
 					<input type="number" min="0" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: 18 }} placeholder="0" />
 					<img src={Logo} style={{ width: 28, height: 28 }} alt="" />
 				</div>
 			</div>
 		</div>
-		<div style={{ marginBottom: 24, width: '100%', display: 'flex', alignItems: 'center', gap: 16, border: '1px solid rgba(38, 38, 38, 0.33)', background: 'white', padding: 16 }}>
-			<input type="range" style={{ width: '100%', border: '1px solid #C7CED3', borderRadius: 8 }} placeholder="0.00" />
+		<div style={{ marginBottom: 24, width: '100%', display: 'flex', alignItems: 'center', gap: 16, border: '2px solid rgba(38, 38, 38, 0.33)', background: 'white', padding: 16 }}>
+			<input type="range" style={{ width: '100%', border: '2px solid #C7CED3', borderRadius: 8 }} placeholder="0.00" />
 			<span>6ETH</span>
 		</div>
-		<button style={{ backgroundColor: 'black', color: '#FFE600', padding: 16, width: '100%', border: '1px solid black', marginBottom: 16 }}>
+		<button style={{ backgroundColor: 'black', color: '#FFE600', padding: 16, width: '100%', border: '2px solid black', marginBottom: 16 }}>
 			BUY
 		</button>
-		<button style={{ backgroundColor: 'transparent', color: 'black', padding: 16, width: '100%', border: '1px solid black', marginBottom: 16 }}>
+		<button style={{ backgroundColor: 'transparent', color: 'black', padding: 16, width: '100%', border: '2px solid black', marginBottom: 16 }}>
 			CONNECT WALLET
 		</button>
 		<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, fontSize: 12 }}>
