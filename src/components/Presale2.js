@@ -15,7 +15,7 @@ export default function Presale (props) {
 			<span style={{ whiteSpace: 'nowrap' }}>22D 17H 20M 33S</span>
 			<div style={{ backgroundColor: '#C7CED3', height: 1, width: '100%' }}></div>
 		</div>
-		<div style={{ display: 'flex', alignItems: 'center', gap: 16, width: '100%', marginBottom: 24 }}>
+		<div className="d-flex flex-column flex-lg-row align-items-lg-center" style={{ gap: 16, width: '100%', marginBottom: 24 }}>
 			<div style={{ width: '100%' }}>
 				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, fontSize: 12 }}>
 					<span>YOU PAY</span>
