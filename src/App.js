@@ -17,6 +17,7 @@ import Buy from './components/Buy'
 import Loading from './components/Loading'
 import NavBar from './components/Navbar'
 import Presale from './components/Presale'
+import Presale2 from './components/Presale2'
 import RoadMap from './components/RoadMap'
 import Socials from './components/Socials'
 import Whitepaper from './components/Whitepaper'
@@ -51,6 +52,7 @@ function App() {
     { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, imgW: 50 },
     { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, imgW: 50 },
     { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, imgW: 60 },
+    { title: 'Presale 2', longTitle: 'Presale 2', component: Presale2, img: PresaleImg, imgW: 60 },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
@@ -71,19 +73,18 @@ function App() {
           {
             activeTab &&
             <Draggable handle="strong">
-              <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: pageWidth, maxWidth: pageWidth, height: "50vh", }}>
-                <div style={{ backgroundColor: "#FFDD00", padding: 5, textAlign: "center" }}>
-                  <div style={{ float: "left", width: 20 }}>
-                    <a style={{ textDecoration: "none", color: "#000", fontSize: 18, fontWeight: "bold" }} onClick={() => setTab(null)}>x</a>
-                  </div>
+              <div className="box no-cursor" style={{ display: 'flex', flexDirection: 'column', width: pageWidth, maxWidth: pageWidth, height: "50vh", position: 'relative' }}>
+                <div style={{ backgroundColor: "#FFDD00", padding: 8, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 16 }}>
+                    <a style={{ textDecoration: "none", color: "#000", fontSize: 24, fontWeight: "bold" }} onClick={() => setTab(null)}>&times;</a>
                     <div style={{ textAlign: "center", fontWeight: "bold", fontFamily: "charcoal", color: "#420000" }}>{activeTab.title}</div>
+                    <span></span>
                 </div>
 
                 <div style={{ height: 10, backgroundColor: "#000" }}></div>
 
                 <div style={{ backgroundColor: "#FFDD00", overflow: 'auto', height: "100%" }}>
                   <div className="p-4 p-lg-5" style={{ whiteSpace: 'pre-wrap', height: "100%", fontFamily: "Poly" }}>
-                    <activeTab.component />
+                    <activeTab.component close={() => setTab(null)} />
                   </div>
                 </div>
               </div>
