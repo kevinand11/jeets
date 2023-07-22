@@ -53,9 +53,9 @@ export default function NavBar (props) {
 
 	return  <Navbar style={navBarStyle} className="">
         <Container >
-        <Navbar.Brand href="#home" style={whiteColor}>
-          <img src={Logo} style={{ height: 25, width: 30, padding: 0 }} alt="" />
-          <span style={{ paddingLeft: "0", marginTop: 30, fontFamily: 'charcoal', fontStyle: "normal", fontWeight: 800, fontSize: "17px", lineHeight: "16px", color: "#000" }}>Jeets</span>
+        <Navbar.Brand href="#home" className="d-flex align-items-center gap-2" style={whiteColor}>
+          <img src={Logo} style={{ height: 20, padding: 0 }} alt="" />
+          <span style={{ fontFamily: 'charcoal', fontStyle: "normal", fontWeight: 800, fontSize: "17px", lineHeight: "17px", color: "#000" }}>Jeets</span>
         </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">

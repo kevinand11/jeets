@@ -23,7 +23,7 @@ export default function Presale (props) {
 				</div>
 				<div style={{ border: '2px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
 					<input type="number" min="0" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: 18 }} placeholder="0" />
-					<img src={CryptoIcon} style={{ width: 28, height: 28 }} alt="" />
+					<img src={CryptoIcon} style={{ height: '1.75rem' }} alt="" />
 				</div>
 			</div>
 			<div style={{ width: '100%' }}>
@@ -33,7 +33,7 @@ export default function Presale (props) {
 				</div>
 				<div style={{ border: '2px solid #727B83', padding: 16, background: '#F9F4F0', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 14 }}>
 					<input type="number" min="0" style={{ background: 'transparent', border: 'none', outline: 'none', fontSize: 18 }} placeholder="0" />
-					<img src={Logo} style={{ width: 28, height: 28 }} alt="" />
+					<img src={Logo} style={{ height: '1.25rem' }} alt="" />
 				</div>
 			</div>
 		</div>
