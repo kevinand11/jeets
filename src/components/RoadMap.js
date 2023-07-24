@@ -2,9 +2,7 @@ export default function RoadMap (props) {
 	return <>
 		<p style={{ fontFamily: "Poly", fontWeight: "bold" }}>ATH 1</p>
 		<ul>
-			<li style={{ fontFamily: "Poly" }}>PreSale</li>
-
-			<li style={{ fontFamily: "Poly" }}>$JEETS Token Launch</li>
+			<li style={{ fontFamily: "Poly" }}>$JEETS Stealth Launch</li>
 
 			<li style={{ fontFamily: "Poly" }}>CoinGecko/CoinMarketcap Listings</li>
 
