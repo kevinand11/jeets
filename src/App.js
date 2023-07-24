@@ -6,7 +6,6 @@ import Draggable from 'react-draggable'
 import "./App.css"
 import AboutImg from './assets/images/About.png'
 import BuyImg from './assets/images/Buy.png'
-import PresaleImg from './assets/images/Presale.png'
 import RoadmapImg from './assets/images/Roadmap.png'
 import SocialsImg from './assets/images/Socials.png'
 import WhitepaperImg from './assets/images/Whitepaper.png'
@@ -16,8 +15,6 @@ import AboutUs from './components/AboutUs'
 import Buy from './components/Buy'
 import Loading from './components/Loading'
 import NavBar from './components/Navbar'
-import Presale from './components/Presale'
-import Presale2 from './components/Presale2'
 import RoadMap from './components/RoadMap'
 import Socials from './components/Socials'
 import Whitepaper from './components/Whitepaper'
@@ -45,14 +42,14 @@ function App() {
   if (isLoading) return <Loading />
 
   const tabs = [
-    { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg, imgW: 60 },
-    { title: 'Telebots', longTitle: 'Telebots', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg, imgW: 60 },
-    { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg, imgW: 50 },
-    { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg, imgW: 50 },
-    { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg, imgW: 50 },
-    { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg, imgW: 50 },
-    { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg, imgW: 60 },
-    { title: 'Presale 2', longTitle: 'Presale 2', component: Presale2, img: PresaleImg, imgW: 60 },
+    { title: 'About us', longTitle: 'About us', component: AboutUs, img: AboutImg },
+    { title: 'Telebots', longTitle: 'Telebots', link: 'https://www.linktr.ee/TelebotsbyJeets', img: TelebotsImg },
+    { title: 'Whitepaper', longTitle: 'Whitepaper', component: Whitepaper, img: WhitepaperImg },
+    { title: 'Roadmap', longTitle: 'Roadmap', component: RoadMap, img: RoadmapImg },
+    { title: 'Socials', longTitle: 'Socials', component: Socials, img: SocialsImg },
+    { title: 'Buy', longTitle: 'How to buy', component: Buy, img: BuyImg },
+    // { title: 'Presale', longTitle: 'Presale', component: Presale, img: PresaleImg },
+    // { title: 'Presale 2', longTitle: 'Presale 2', component: Presale2, img: PresaleImg },
   ]
 
   const chunks = sliceIntoChunks(tabs, 2)
@@ -85,6 +82,7 @@ function App() {
                 <div style={{ backgroundColor: "#FFDD00", overflow: 'auto', height: "100%" }}>
                   <div className="p-4 p-lg-5" style={{ whiteSpace: 'pre-wrap', height: "100%", fontFamily: "Poly" }}>
                     <activeTab.component close={() => setTab(null)} />
+                    <div style={{ height: 30 }}></div>
                   </div>
                 </div>
               </div>
