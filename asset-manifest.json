@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.d1e1c3e5.css",
+    "main.js": "/static/js/main.13e96130.js",
+    "static/media/Jeet.png": "/static/media/Jeet.c565fed5137de4ac2bdc.png",
+    "static/media/charcoal.ttf": "/static/media/charcoal.c1b218c157d6ea7880ef.ttf",
+    "static/media/robo2.png": "/static/media/robo2.1d7d5eacb89ca282f058.png",
+    "static/media/Poly-Regular.woff": "/static/media/Poly-Regular.1a6a72f973784f9cab6b.woff",
+    "static/media/Poly-Italic.woff": "/static/media/Poly-Italic.da0fa5a29353eed2ec73.woff",
+    "index.html": "/index.html",
+    "main.d1e1c3e5.css.map": "/static/css/main.d1e1c3e5.css.map",
+    "main.13e96130.js.map": "/static/js/main.13e96130.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d1e1c3e5.css",
+    "static/js/main.13e96130.js"
+  ]
+}
